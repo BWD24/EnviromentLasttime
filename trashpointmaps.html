@@ -3,7 +3,7 @@
 
  <head>
         <meta charset="utf-8">
-        <title>THEMosque - Mosque Website Template</title>
+        <title>Trash Map | Greentify</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -33,6 +33,8 @@
         <link href="css/style.css" rel="stylesheet">
         <link rel="stylesheet" href="css/mapPage.css">
 
+           <link rel="icon" type="image/x-icon" href="./img/logo.png">
+
         <!--  -->
 
 
@@ -57,9 +59,9 @@
                     <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                         <div class="navbar-nav ms-lg-auto mx-xl-auto">
                             <a href="index.html" class="nav-item nav-link ">Trang chủ</a>
-                            <a href="trashpointmaps.html" class="nav-item nav-link active">Môi trường xanh</a>
-                            <a href="activity.html" class="nav-item nav-link">Sống Xanh</a>
-                            <a href="event.html" class="nav-item nav-link">Thực đơn</a>
+                            <a href="trashpointmaps.html" class="nav-item nav-link active">Bản đồ rác thải</a>
+                            <a href="songxanh.html" class="nav-item nav-link">Sống Xanh</a>
+                            <a href="menu.html" class="nav-item nav-link">Thực đơn</a>
                             </div>
                    
                         </div>
@@ -70,8 +72,9 @@
         <!-- Topbar End -->
 
 
-<div class="col-12" style="margin-top: 70px;">
-Cùng tạo ra vùng thu, gom rác phân loại với chúng tôi, kết nối cộng đồng địa phương    
+<div class="col-12 trashDisc" style="margin-top: 70px;">
+Cùng tạo ra vùng thu, gom rác phân loại với chúng tôi, kết nối cộng đồng địa phương<br> 
+Không xả rác bừa bãi
 </div>
 
 
@@ -82,22 +85,28 @@ Cùng tạo ra vùng thu, gom rác phân loại với chúng tôi, kết nối c
       <h2> Hành động</h2>
       <button id="locateBtn" onclick="locateUser()">📍 Vị trí của tôi</button>
       <button id="addFlagBtn" onclick="">🚩 Gắn cờ điểm rác thải</button>
-      <button id="addRecycleBtn" onclick="displayTrashFlag(lat, lng)">🗑️ Thêm điểm thu gom</button>
+      <button id="addCollectionBtn">➕ Thêm điểm thu gom</button>
+<div id="controlPanel">
+  <select id="trashLevel">
+    <option value="normal">🟢 Bình thường</option>
+    <option value="serious">🟠 Nghiêm trọng</option>
+    <option value="danger">🔴 Cảnh báo ô nhiễm</option>
+  </select>
+
+</div>
 </div>
 
 <div id="panel" class="w-100" style="">
       <h2>Tìm kiếm</h2>
-      <button id="locateBtn" onclick="    getLocatedUser()">📍 Vị trí của tôi</button>
-      <button id="addWarningBtn">🚩 Báo điểm có rác</button>
-      <button id="addRecycleBtn">🗑️ Thêm điểm thu gom</button>
+    
 </div>
 
   
 
 
 </div>
-            <div class="map-wrapper--map col-12 col-lg-8">
-                <div id="map" class="w-100" style="height: 100%" ></div>
+            <div class="map-wrapper--map col-12 col-lg-8" >
+                <div id="map" class="w-100" style="height: 100%"  ></div>
             </div>
          </div>
       <!-- Map Wrapper End -->
@@ -110,7 +119,7 @@ Cùng tạo ra vùng thu, gom rác phân loại với chúng tôi, kết nối c
 
 
         <!-- Footer Start -->
-       <div class="container-fluid footer pt-5 wow fadeIn" data-wow-delay="0.1s">
+       <div class="container-fluid footer pt-5 wow fadeIn my-md-5" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row py-5">
                 <div class="col-lg-7">
@@ -253,52 +262,82 @@ Cùng tạo ra vùng thu, gom rác phân loại với chúng tôi, kết nối c
     });
 
     // Hàm lưu cờ rác
-    function reportTrash(lat, lng) {
-      const refPath = db.ref("trashFlags").push();
-      refPath.set({
-        lat: lat,
-        lng: lng,
-        timestamp: Date.now()
-      });
-    }
+
 
     // Hiển thị marker + vòng cảnh báo
-    function displayTrashFlag(lat, lng) {
-      L.marker([lat, lng]).addTo(map).bindPopup("🚩 Điểm rác thải");
-      L.circle([lat, lng], {
-        radius: 30,
-        color: 'red',
-        fillColor: '#f03',
-        fillOpacity: 0.2
-      }).addTo(map);
-    }
+      const flagIcon = L.icon({
+    iconUrl: './img/flag.png',  // URL của ảnh cờ (thay bằng ảnh của bạn)
+    iconSize: [32, 32],     // Kích thước icon
+    iconAnchor: [16, 32],   // Neo tại dưới cùng
+    popupAnchor: [0, -32]   // Vị trí popup (hiển thị trên ảnh)
+  });
+
+  function reportTrash(lat, lng, level) {
+  const refPath = db.ref("trashFlags").push();
+  refPath.set({
+    lat:lat,
+    lng:lng,
+    level:level,
+    timestamp: Date.now()
+  });
+}
+
+function displayTrashFlag(lat, lng, level = "normal") {
+  let iconUrl;
+  switch (level) {
+    case "normal": iconUrl = "img/greenflag.png"; break;
+    case "serious": iconUrl = "img/yellowFlag.png"; break;
+    case "danger": iconUrl = "img/redFlag.png"; break;
+   
+  }
+  const icon = L.icon({
+    iconUrl,
+    iconSize: [32, 32]
+  });
+
+  L.marker([lat, lng], { icon }).addTo(map).bindPopup(`🚩 Mức độ: ${level}`);
+  L.circle([lat, lng], {
+    radius: 30,
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.2
+  }).addTo(map);
+}
+
+
+
 
     // Đọc và hiển thị cờ từ Firebase
-    function loadAllTrashFlags() {
-      db.ref("trashFlags").on("value", (snapshot) => {
-        const data = snapshot.val();
-        if (!data) return;
-        Object.values(data).forEach(({ lat, lng }) => {
-          displayTrashFlag(lat, lng);
-        });
-      });
-    }
+function loadAllTrashFlags() {
+  db.ref("trashFlags").on("value", (snapshot) => {
+    const data = snapshot.val();
+    if (!data) return;
+
+    Object.values(data).forEach(({ lat, lng, level }) => {
+      displayTrashFlag(lat, lng, level);
+    });
+  });
+}
+
 
 const flagAddBtn = document.querySelector('#addFlagBtn'); 
 console.log(flagAddBtn);
 
 
     // Gắn sự kiện cho nút
-    document.getElementById("addFlagBtn").onclick = () => {
-      if (selectedLatLng) {
-        const [lat, lng] = selectedLatLng;
-        reportTrash(lat, lng);
-        displayTrashFlag(lat, lng);
-      } else {
-        alert("📍 Click vào bản đồ để chọn vị trí trước!");
-      }
-    };
-
+   document.getElementById("addFlagBtn").onclick = () => {
+  if (selectedLatLng) {
+    const [lat, lng] = selectedLatLng;
+    const level = document.getElementById("trashLevel").value;
+  
+    reportTrash(lat, lng, level);
+    displayTrashFlag(lat, lng, level);
+      loadAllTrashFlags(); 
+    
+  } else {
+    alert("📍 Click vào bản đồ để chọn vị trí trước!");
+  }
+};
     // Tải dữ liệu khi bắt đầu
     loadAllTrashFlags();
 
@@ -324,11 +363,89 @@ console.log(flagAddBtn);
       const marker = L.marker(userLatLng).addTo(map);
       marker.bindPopup("📍 Vị trí của bạn").openPopup();
     },
-    () => {
-      alert("Không thể lấy vị trí.");
+    (error) => {
+      alert("Không thể lấy vị trí."  + error) ;
     }
   );
 }
+
+
+
+// Icon điểm thu gom rác (xanh lá)
+// const collectionIcon = L.icon({
+//   iconUrl: 'path/to/flag-green.png', // ← dùng icon bạn vừa tạo
+//   iconSize: [32, 32],
+//   iconAnchor: [16, 32],
+//   popupAnchor: [0, -32]
+// });
+
+// Hàm lưu điểm thu gom vào Firebase
+function reportCollectionPoint(lat, lng) {
+  const refPoint = db.ref("collectionPoints").push(); 
+  refPoint.set({
+    lat,
+    lng,
+    timestamp: Date.now()
+  });
+}
+
+// Hàm hiển thị điểm thu gom
+
+
+
+document.getElementById("addCollectionBtn").onclick = () => {
+  if (selectedLatLng) {
+    const [lat, lng] = selectedLatLng;
+    reportCollectionPoint(lat, lng);       // Gửi lên Firebase
+    displayCollectionPoint(lat, lng);      // Hiển thị trên bản đồ
+    loadCollectionPoints(); 
+
+  } else {
+    alert("❗Bạn chưa chọn vị trí trên bản đồ!");
+  }
+};
+
+
+
+ const collectionIcon = L.icon({
+  iconUrl: 'https://cdn-icons-png.flaticon.com/512/3096/3096687.png',
+  iconSize: [32, 32],
+  iconAnchor: [16, 32],
+  popupAnchor: [0, -32]
+});
+
+function displayCollectionPoint(lat, lng) {
+  const icon = L.icon({
+    iconUrl: "img/trash.png", // Bạn có thể đổi icon điểm thu gom
+    iconSize: [30, 30],
+    iconAnchor: [15, 30]
+  });
+
+  L.marker([lat, lng], { icon })
+    .addTo(map)
+    .bindPopup("📦 Điểm thu gom");
+}
+
+// Bắt sự kiện click nút thêm điểm thu gom
+map.on("click", function (e) {
+  selectedLatLng = [e.latlng.lat, e.latlng.lng];
+  alert("📍 Đã chọn vị trí tại: " + selectedLatLng.join(", "));
+});
+
+
+
+function loadCollectionPoints() {
+  firebase.database().ref("collectionPoints").once("value", (snapshot) => {
+    const data = snapshot.val();
+    if (data) {
+      Object.values(data).forEach(({ lat, lng }) => {
+        displayCollectionPoint(lat, lng);
+      });
+    }
+  });
+}
+
+loadCollectionPoints(); 
 
   </script>
     </body>

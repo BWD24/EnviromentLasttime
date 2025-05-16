@@ -323,6 +323,14 @@ align-items: center;
     background-position-y: 34%;
     background-position-x: 60%;
 }
+
+.avt-img-mt {
+    background-image: url('../img/minhtri.jpg');
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position-y: -50%;
+    
+}
 .team .team-img {
     height: 100%;
     padding: 25px;

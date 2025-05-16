@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ <head>
+        <meta charset="utf-8">
+        <title>THEMosque - Mosque Website Template</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- Leaflet JS -->
+
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/mapPage.css">
+
+        <!--  -->
+
+
+
+
+        
+
+</head>
+
+<body>
+        <!-- Topbar start -->
+<div class="container-fluid fixed-top">
+                <nav>
+            <div class="container">
+                <nav class="navbar navbar-light navbar-expand-lg py-3">
+                    <a href="index.html" class="navbar-brand">
+        <img src="./img/logo.png" alt="" width="50px" height="50px" >
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="fa fa-bars firstColor"></span>
+                    </button>
+                    <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+                        <div class="navbar-nav ms-lg-auto mx-xl-auto">
+                            <a href="index.html" class="nav-item nav-link ">Trang chủ</a>
+                            <a href="trashpointmaps.html" class="nav-item nav-link active">Môi trường xanh</a>
+                            <a href="activity.html" class="nav-item nav-link">Sống Xanh</a>
+                            <a href="event.html" class="nav-item nav-link">Thực đơn</a>
+                            </div>
+                   
+                        </div>
+                        <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block loginbtn">Đăng Nhập</a>
+             </div>
+                </nav>
+</div>
+        <!-- Topbar End -->
+
+
+<div class="col-12" style="margin-top: 70px;">
+Cùng tạo ra vùng thu, gom rác phân loại với chúng tôi, kết nối cộng đồng địa phương    
+</div>
+
+
+<!-- Map Wrapper Start -->
+<div class="map__wrapper w-100 row"  style="margin-top: 120px;  height: 100vh;" >
+    <div class="map__wrapper--action col-12  col-lg-4">
+<div id="panel" class="w-100" style="">
+      <h2> Hành động</h2>
+      <button id="locateBtn" onclick="locateUser()">📍 Vị trí của tôi</button>
+      <button id="addFlagBtn" onclick="">🚩 Gắn cờ điểm rác thải</button>
+      <button id="addRecycleBtn" onclick="displayTrashFlag(lat, lng)">🗑️ Thêm điểm thu gom</button>
+</div>
+
+<div id="panel" class="w-100" style="">
+      <h2>Tìm kiếm</h2>
+      <button id="locateBtn" onclick="    getLocatedUser()">📍 Vị trí của tôi</button>
+      <button id="addWarningBtn">🚩 Báo điểm có rác</button>
+      <button id="addRecycleBtn">🗑️ Thêm điểm thu gom</button>
+</div>
+
+  
+
+
+</div>
+            <div class="map-wrapper--map col-12 col-lg-8">
+                <div id="map" class="w-100" style="height: 100%" ></div>
+            </div>
+         </div>
+      <!-- Map Wrapper End -->
+      
+
+
+    
+
+     
+
+
+        <!-- Footer Start -->
+       <div class="container-fluid footer pt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row py-5">
+                <div class="col-lg-7">
+                    <h1 class="text-light mb-0">Đăng ký nhận bản tin của chúng tôi</h1>
+                    <p class="text-secondary">Nhận thông tin mới nhất về bảo vệ môi trường và các mẹo hay</p>
+                </div>
+                <div class="col-lg-5">
+                    <div class="position-relative mx-auto">
+                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Nhập email của bạn">
+                        <button type="button" class="btn  py-2 position-absolute top-0 end-0 mt-2 me-2;" style="background-color: #157347; color: white;">Đăng Ký</button>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="border-top" style="border-color: #157347;"></div>
+                </div>
+            </div>
+            <div class="row g-4 footer-inner">
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item mt-5">
+                        <h4 class="text-light mb-4"><span style="color: #157347;">Greentify  Project</span></h4>
+                        <p class="mb-4 text-secondary">Chúng tôi cam kết bảo vệ môi trường và thúc đẩy sự phát triển bền vững cho cộng đồng và hành tinh.</p>
+                        <a href="" class="btn" style="background-color: #157347; color: white;">Hỗ trợ chúng tôi</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item mt-5">
+                        <h4 class="text-light mb-4">Môi Trường Xanh</h4>
+                        <div class="d-flex flex-column">
+                            <h6 class="text-secondary mb-0">Địa chỉ của chúng tôi</h6>
+                            <div class="d-flex align-items-center border-bottom py-4">
+                                <span class="flex-shrink-0 btn-square" style="background-color: #157347; color: white; "><i class="fa fa-map-marker-alt text-dark me-3 p-4;"></i></span>
+                                <a href="" class="text-body">Trần Đại Nghĩa, Ngũ Hành Sơn, Đà Nẵng</a>
+                            </div>
+                            <h6 class="text-secondary mt-4 mb-0">Liên hệ với chúng tôi</h6>
+                            <div class="d-flex align-items-center py-4">
+                                <span class="flex-shrink-0 btn-square" style="background-color: #157347; color: white; "><i class="fa fa-phone-alt text-dark me-3 p-4;"></i></span>
+                                <a href="" class="text-body">+3888730432</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item mt-5">
+                        <h4 class="text-light mb-4">Các Liên Kết Khám Phá</h4>
+                        <div class="d-flex flex-column align-items-start">
+                            <a class="text-body mb-2" href=""><i class="fa fa-check me-2" style="color: #157347; "></i>Trang chủ</a>
+                            <a class="text-body mb-2" href=""><i class="fa fa-check me-2" style="color: #157347; "></i>Giới thiệu</a>
+                            <a class="text-body mb-2" href=""><i class="fa fa-check me-2" style="color: #157347; "></i>Các dự án của chúng tôi</a>
+                            <a class="text-body mb-2" href=""><i class="fa fa-check me-2" style="color: #157347; "></i>Liên hệ</a>
+                            <a class="text-body mb-2" href=""><i class="fa fa-check me-2" style="color: #157347; "></i>Blog về môi trường</a>
+                            <a class="text-body mb-2" href=""><i class="fa fa-check me-2" style="color: #157347; "></i>Hoạt động cộng đồng</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item mt-5">
+                        <h4 class="text-light mb-4">Bài Viết Mới Nhất</h4>
+                        <div class="d-flex border-bottom py-4" style="border-color: #157347; ">
+                            <img src="img/blog-mini-1.jpg" class="img-fluid flex-shrink-0" alt="">
+                            <div class="ps-3">
+                                <p class="mb-0 text-muted">01 Jan 2045</p>
+                                <a href="" class="text-body">Những giải pháp bảo vệ môi trường đơn giản mà hiệu quả</a>
+                            </div>
+                        </div>
+                        <div class="d-flex py-4">
+                            <img src="img/blog-mini-2.jpg" class="img-fluid flex-shrink-0" alt="">
+                            <div class="ps-3">
+                                <p class="mb-0 text-muted">01 Jan 2045</p>
+                                <a href="" class="text-body">Tại sao chúng ta cần giảm thiểu chất thải nhựa ngay bây giờ?</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container py-4">
+            <div class="border-top pb-4" style="border-color: #157347; "></div>
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a class="border-bottom" href="#">Grentify </a>, Tất cả quyền được bảo lưu.
+                </div>
+            
+            </div>
+        </div>
+    </div>
+        <!-- Footer End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-primary border-3 border-light back-to-top"><i class="fa fa-arrow-up"></i></a>   
+
+        
+        <!-- JavaScript Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/wow/wow.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+       
+
+        <!-- Template Javascript -->
+   
+        <script src="./lib/leaflet/leaflet.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/map.js"></script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <!-- Firebase SDK (compat version for vanilla JS) -->
+  <script src="https://www.gstatic.com/firebasejs/11.7.3/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.7.3/firebase-database-compat.js"></script>
+
+  <script>
+    // Khởi tạo Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyCnjDsl54xYhEAYJp5z_PIVjXQ4JQbADEM",
+      authDomain: "enviroment-e0547.firebaseapp.com",
+      databaseURL: "https://enviroment-e0547-default-rtdb.firebaseio.com",
+      projectId: "enviroment-e0547",
+      storageBucket: "enviroment-e0547.appspot.com",
+      messagingSenderId: "958910478886",
+      appId: "1:958910478886:web:5ebb2a49583cab4439c4e7"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    // Khởi tạo bản đồ
+    let map = L.map('map').setView([10.762622, 106.660172], 15);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Gắn cờ từ click
+    let selectedLatLng = null;
+    map.on('click', function (e) {
+      selectedLatLng = [e.latlng.lat, e.latlng.lng];
+      L.popup()
+        .setLatLng(e.latlng)
+        .setContent("👉 Đã chọn vị trí này để gắn cờ")
+        .openOn(map);
+    });
+
+    // Hàm lưu cờ rác
+    function reportTrash(lat, lng) {
+      const refPath = db.ref("trashFlags").push();
+      refPath.set({
+        lat: lat,
+        lng: lng,
+        timestamp: Date.now()
+      });
+    }
+
+    // Hiển thị marker + vòng cảnh báo
+    function displayTrashFlag(lat, lng) {
+      L.marker([lat, lng]).addTo(map).bindPopup("🚩 Điểm rác thải");
+      L.circle([lat, lng], {
+        radius: 30,
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.2
+      }).addTo(map);
+    }
+
+    // Đọc và hiển thị cờ từ Firebase
+    function loadAllTrashFlags() {
+      db.ref("trashFlags").on("value", (snapshot) => {
+        const data = snapshot.val();
+        if (!data) return;
+        Object.values(data).forEach(({ lat, lng }) => {
+          displayTrashFlag(lat, lng);
+        });
+      });
+    }
+
+const flagAddBtn = document.querySelector('#addFlagBtn'); 
+console.log(flagAddBtn);
+
+
+    // Gắn sự kiện cho nút
+    document.getElementById("addFlagBtn").onclick = () => {
+      if (selectedLatLng) {
+        const [lat, lng] = selectedLatLng;
+        reportTrash(lat, lng);
+        displayTrashFlag(lat, lng);
+      } else {
+        alert("📍 Click vào bản đồ để chọn vị trí trước!");
+      }
+    };
+
+    // Tải dữ liệu khi bắt đầu
+    loadAllTrashFlags();
+
+    function locateUser() {
+  if (!navigator.geolocation) {
+    alert("Trình duyệt không hỗ trợ định vị.");
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      const lat = position.coords.latitude;
+      const lng = position.coords.longitude;
+      const userLatLng = [lat, lng];
+
+      // Di chuyển mượt tới vị trí người dùng
+      map.flyTo(userLatLng, 16, {
+        animate: true,
+        duration: 1.5 // giây
+      });
+
+      // Hiển thị marker vị trí người dùng
+      const marker = L.marker(userLatLng).addTo(map);
+      marker.bindPopup("📍 Vị trí của bạn").openPopup();
+    },
+    () => {
+      alert("Không thể lấy vị trí.");
+    }
+  );
+}
+
+  </script>
+    </body>
+
+</html>

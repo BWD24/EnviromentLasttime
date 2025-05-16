@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Gắn cờ rác thải</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 90vh;
+      width: 100%;
+    }
+    #addFlagBtn {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 1000;
+      background: red;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="addFlagBtn">🚩 Gắn cờ rác thải</button>
+  <div id="map"></div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <!-- Firebase SDK (compat version for vanilla JS) -->
+  <script src="https://www.gstatic.com/firebasejs/11.7.3/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.7.3/firebase-database-compat.js"></script>
+
+  <script>
+    // Khởi tạo Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyCnjDsl54xYhEAYJp5z_PIVjXQ4JQbADEM",
+      authDomain: "enviroment-e0547.firebaseapp.com",
+      databaseURL: "https://enviroment-e0547-default-rtdb.firebaseio.com",
+      projectId: "enviroment-e0547",
+      storageBucket: "enviroment-e0547.appspot.com",
+      messagingSenderId: "958910478886",
+      appId: "1:958910478886:web:5ebb2a49583cab4439c4e7"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    // Khởi tạo bản đồ
+    let map = L.map('map').setView([10.762622, 106.660172], 15);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Gắn cờ từ click
+    let selectedLatLng = null;
+    map.on('click', function (e) {
+      selectedLatLng = [e.latlng.lat, e.latlng.lng];
+      L.popup()
+        .setLatLng(e.latlng)
+        .setContent("👉 Đã chọn vị trí này để gắn cờ")
+        .openOn(map);
+    });
+
+    // Hàm lưu cờ rác
+    function reportTrash(lat, lng) {
+      const refPath = db.ref("trashFlags").push();
+      refPath.set({
+        lat: lat,
+        lng: lng,
+        timestamp: Date.now()
+      });
+    }
+
+    // Hiển thị marker + vòng cảnh báo
+    function displayTrashFlag(lat, lng) {
+      L.marker([lat, lng]).addTo(map).bindPopup("🚩 Điểm rác thải");
+      L.circle([lat, lng], {
+        radius: 30,
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.2
+      }).addTo(map);
+    }
+
+    // Đọc và hiển thị cờ từ Firebase
+    function loadAllTrashFlags() {
+      db.ref("trashFlags").on("value", (snapshot) => {
+        const data = snapshot.val();
+        if (!data) return;
+        Object.values(data).forEach(({ lat, lng }) => {
+          displayTrashFlag(lat, lng);
+        });
+      });
+    }
+
+    // Gắn sự kiện cho nút
+    document.getElementById("addFlagBtn").onclick = () => {
+      if (selectedLatLng) {
+        const [lat, lng] = selectedLatLng;
+        reportTrash(lat, lng);
+        displayTrashFlag(lat, lng);
+      } else {
+        alert("📍 Click vào bản đồ để chọn vị trí trước!");
+      }
+    };
+
+    // Tải dữ liệu khi bắt đầu
+    loadAllTrashFlags();
+  </script>
+</body>
+</html>

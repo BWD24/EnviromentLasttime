@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="utf-8">
+        <title>Enviroment</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+
+        
+
+    </head>
+
+    <body>
+
+        <!-- Spinner Start -->
+        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" role="status"></div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Topbar start -->
+        <div class="container-fluid fixed-top">
+                <nav>
+            <div class="container">
+                <nav class="navbar navbar-light navbar-expand-lg py-3">
+                    <a href="index.html" class="navbar-brand">
+        <img src="./img/logo.png" alt="" width="50px" height="50px" >
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="fa fa-bars firstColor"></span>
+                    </button>
+                    <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+                        <div class="navbar-nav ms-lg-auto mx-xl-auto">
+                            <a href="index.html" class="nav-item nav-link active">Trang chủ</a>
+                            <a href="trashpointmaps.html" class="nav-item nav-link">Môi trường xanh</a>
+                            <a href="activity.html" class="nav-item nav-link">Sống Xanh</a>
+                            <a href="event.html" class="nav-item nav-link">Thực đơn</a>
+                            </div>
+                   
+                        </div>
+                        <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block loginbtn">Đăng Nhập</a>
+             </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Topbar End -->
+
+<!-- HERO SECTION -->
+
+<section class="py-5" style="background-color: #e6f5ec;">
+  <div class="container">
+    <div class="row align-items-center">
+      
+      <!-- LEFT: TEXT -->
+      <div class="col-12 col-md-6 mb-4 mb-md-0 text-center text-md-start wow fadeIn" data-aos="fade-right">
+        <h1 class="fw-bold display-5 text-success wow fadeIn">
+          Thu gom rác dễ dàng, <br> sống xanh mỗi ngày
+        </h1>
+        <p class="mt-3 text-muted fs-5">
+          Cùng chúng tôi tìm kiếm và chia sẻ các điểm thu gom rác thải tại địa phương một cách nhanh chóng, tiện lợi và hiệu quả.
+        </p>
+        <a href="#map" class="btn btn-success btn-lg mt-4 px-4 py-2">Khám phá bản đồ</a>
+      </div>
+
+      <!-- RIGHT: ILLUSTRATION -->
+      <div class="col-12 col-md-6 text-centern wow zoomIn" data-aos="zoom-in">
+        <img src="https://cdn-icons-png.flaticon.com/512/4319/4319160.png" alt="Recycle Map" class="img-fluid" style="max-width: 360px;">
+      </div>
+
+    </div>
+  </div>
+</section>
+<!--END HERO SECTION -->
+
+   <!-- SECTION MÔ TẢ -->
+<div class="container-fluid py-5 fadeIn wow" style="background-color: #e6f5ec;">
+  <div class="container py-5">
+    <div class="row g-5 mb-5 infoE">
+      
+      <!-- Hình ảnh minh họa -->
+      <div class="col-xl-6 col-md-12 Enviroment ">
+     
+      </div>
+
+      <!-- Nội dung văn bản -->
+      <div class="col-xl-6 fadeIn">
+        <p class="fs-5 text-uppercase text-success">Về Chúng Tôi</p>
+        <h1 class="display-5 pb-4 m-0 text-success">Lan tỏa lối sống xanh, bảo vệ môi trường</h1>
+        <p class="pb-4">
+          Chúng tôi giúp cộng đồng tìm kiếm các điểm thu gom rác thải tại địa phương một cách nhanh chóng, dễ dàng, góp phần lan tỏa ý thức sống xanh, bảo vệ môi trường bền vững.
+        </p>
+
+        <div class="row g-4 mb-4">
+          <div class="col-md-6">
+            <div class="d-flex align-items-center">
+              <div class="bg-success rounded-circle p-3 me-3">
+                <i class="fa fa-leaf fa-2x text-white"></i>
+              </div>
+              <div>
+                <h5 class="text-success">Tầm Nhìn</h5>
+                <p>Vì một Việt Nam sạch, xanh, bền vững</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="d-flex align-items-center">
+              <div class="bg-success rounded-circle p-3 me-3">
+                <i class="fa fa-map-marker-alt fa-2x text-white"></i>
+              </div>
+              <div>
+                <h5 class="text-success">Sứ Mệnh</h5>
+                <p>Kết nối cộng đồng với các điểm thu gom hiệu quả</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Thông tin bên dưới -->
+        <div class="bg-white border border-success rounded p-3 mb-4">
+          <div class="row align-items-center">
+            <div class="col-3">
+              <img src="img/avatar-eco.jpg" class="img-fluid rounded-circle" alt="">
+            </div>
+            <div class="col-6">
+              <p class="mb-0">“Hành trình xanh bắt đầu từ hành động nhỏ. Cùng nhau, chúng ta tạo nên thay đổi lớn.”</p>
+            </div>
+            <div class="col-3 text-center">
+              <h2 class="text-success mb-0">+120</h2>
+              <small>Điểm thu gom</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-2">
+          <div class="col-md-6">
+            <p><i class="fa fa-check text-success me-2"></i>Giảm thiểu rác thải</p>
+            <p><i class="fa fa-check text-success me-2"></i>Tăng ý thức cộng đồng</p>
+          </div>
+          <div class="col-md-6">
+            <p><i class="fa fa-check text-success me-2"></i>Bảo vệ môi trường</p>
+            <p><i class="fa fa-check text-success me-2"></i>Kết nối địa phương</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="container text-center bg-success py-5 rounded wow fadeIn" data-wow-delay="0.2s">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-2">
+          <i class="fa fa-recycle fa-5x text-white"></i>
+        </div>
+        <div class="col-lg-7 text-center text-lg-start">
+          <h1 class="text-white mb-0">Mỗi hành động nhỏ – Một tương lai xanh hơn</h1>
+        </div>
+      
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- SECTION MÔ TẢ -- END -->
+
+      
+    <!--SECTION CHART -->
+<div class="chartJs mx-auto col-md-12">
+      <h2>Thống kê rác thải và mức độ nguy hiểm (2021 - 2025)</h2>
+  <canvas id="trashChart" width="800"  class="col-md-12"></canvas>
+</div>
+    <!--SECTION CHART END  -->
+
+    <!-- Blog Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <h1 class="display-3 mb-5 wow fadeIn text-center" data-wow-delay="0.1s">
+            Bài viết mới về <span class="text-success">Môi Trường & Rác Thải</span>
+        </h1>
+        <div class="row g-4 justify-content-center">
+            <!-- Blog 1 -->
+            <div class="col-lg-6 col-xl-4">
+                <div class="blog-item wow fadeIn" data-wow-delay="0.1s">
+                    <div class="blog-img position-relative overflow-hidden" style="height: 50%">
+                        <img src="./img/trash.jpg" class="img-fluid w-100" alt="">
+                        <div class="bg-success d-inline px-3 py-2 text-center text-white position-absolute top-0 end-0">01 Jan 2025</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="blog-meta d-flex justify-content-between pb-2">
+                            <div>
+                                <small><i class="fas fa-user me-2 text-muted"></i><a href="#" class="text-muted me-2">Admin</a></small>
+                                <small><i class="fa fa-comment-alt me-2 text-muted"></i><a href="#" class="text-muted me-2">12 Comments</a></small>
+                            </div>
+                            <div>
+                                <a href="#"><i class="fas fa-bookmark text-muted"></i></a>
+                            </div>
+                        </div>
+                        <a href="#" class="d-inline-block h4 lh-sm mb-3">Thực trạng rác thải nhựa tại Việt Nam</a>
+                        <p class="mb-4">Mỗi năm Việt Nam thải ra hàng triệu tấn rác nhựa, ảnh hưởng nghiêm trọng đến môi trường biển và đất liền. Cùng tìm hiểu giải pháp giảm thiểu.</p>
+                        <a href="#" class="btn btn-success px-3">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog 2 -->
+            <div class="col-lg-6 col-xl-4">
+                <div class="blog-item wow fadeIn" data-wow-delay="0.3s">
+                    <div class="blog-img position-relative overflow-hidden" style="height: 50%">
+                        <img src="./img/trashType.jpg" class="img-fluid w-100" alt="">
+                        <div class="bg-success d-inline px-3 py-2 text-center text-white position-absolute top-0 end-0">10 Feb 2025</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="blog-meta d-flex justify-content-between pb-2">
+                            <div>
+                                <small><i class="fas fa-user me-2 text-muted"></i><a href="#" class="text-muted me-2">Admin</a></small>
+                                <small><i class="fa fa-comment-alt me-2 text-muted"></i><a href="#" class="text-muted me-2">8 Comments</a></small>
+                            </div>
+                            <div>
+                                <a href="#"><i class="fas fa-bookmark text-muted"></i></a>
+                            </div>
+                        </div>
+                        <a href="#" class="d-inline-block h4 lh-sm mb-3">Phân loại rác tại nguồn – Việc nhỏ, tác động lớn</a>
+                        <p class="mb-4">Việc phân loại rác giúp giảm tải cho bãi rác, tái chế hiệu quả và bảo vệ hệ sinh thái. Bạn đã phân loại rác đúng cách chưa?</p>
+                        <a href="#" class="btn btn-success px-3">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog 3 -->
+            <div class="col-lg-6 col-xl-4">
+                <div class="blog-item wow fadeIn" data-wow-delay="0.5s">
+                    <div class="blog-img position-relative overflow-hidden" style="height: 50%">
+                        <img src="./img/electricTrash.jpg" class="img-fluid w-100" alt="" >
+                        <div class="bg-success d-inline px-3 py-2 text-center text-white position-absolute top-0 end-0">22 Mar 2025</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="blog-meta d-flex justify-content-between pb-2">
+                            <div>
+                                <small><i class="fas fa-user me-2 text-muted"></i><a href="#" class="text-muted me-2">Admin</a></small>
+                                <small><i class="fa fa-comment-alt me-2 text-muted"></i><a href="#" class="text-muted me-2">15 Comments</a></small>
+                            </div>
+                            <div>
+                                <a href="#"><i class="fas fa-bookmark text-muted"></i></a>
+                            </div>
+                        </div>
+                        <a href="#" class="d-inline-block h4 lh-sm mb-3">Rác điện tử – hiểm họa mới thời công nghệ</a>
+                        <p class="mb-4">Tivi, điện thoại cũ đang trở thành loại rác cực kỳ nguy hiểm nếu không được xử lý đúng cách. Xem hướng dẫn xử lý rác điện tử an toàn.</p>
+                        <a href="#" class="btn btn-success px-3">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Blog End -->
+
+   
+
+    
+      <!-- Team Start -->
+<div class="container-fluid py-5 bg-light">
+    <div class="container py-5">
+        <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
+            <p class="fs-5 text-uppercase text-success">Thành viên nhóm chúng tôi</p> 
+        </div>
+        <div class="row g-3"> <!-- Reduced spacing between items -->
+            <!-- Thành viên 1 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3"> <!-- Smaller columns -->
+                <div class="card shadow border-0 h-100 text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <img src="./img/ducmanh.jpg" class="card-img-top rounded-3" alt="Đức Mạnh" style="height: 180px; object-fit: cover;"> <!-- Reduced image size -->
+                    <div class="card-body">
+                        <h5 class="card-title mb-1">Đức Mạnh</h5>
+                        <p class="card-text">Nhà phát triển  </p>
+                        <div class="d-flex justify-content-center gap-2">
+                            <a href="#" class="btn btn-outline-success btn-sm rounded-circle"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="btn btn-outline-success btn-sm rounded-circle"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="btn btn-outline-success btn-sm rounded-circle"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thành viên 2 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3"> <!-- Smaller columns -->
+                <div class="card shadow border-0 h-100 text-center wow fadeInUp" data-wow-delay="0.2s">
+                    <div  class="avt-img" alt="Nguyên Ngọc"  ></div> <!-- Reduced image size -->
+                    <div class="card-body">
+                        <h5 class="card-title mb-1">Nguyên Ngọc</h5>
+                        <p class="text-muted mb-2">Thiết Kế & Nội Dung</p>
+                        <p class="card-text">Chịu trách nhiệm thiết kế giao diện và biên tập nội dung truyền thông.</p>
+                        <div class="d-flex justify-content-center gap-2">
+                            <a href="#" class="btn btn-outline-success btn-sm rounded-circle"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="btn btn-outline-success btn-sm rounded-circle"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="btn btn-outline-success btn-sm rounded-circle"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thành viên 3 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3"> <!-- Smaller columns -->
+                <div class="card shadow border-0 h-100 text-center wow fadeInUp" data-wow-delay="0.3s">
+                    <img src="./img/quocthang.png" class="card-img-top rounded-3" alt="Quốc Thắng" style="height: 180px; object-fit: cover;"> <!-- Reduced image size -->
+                    <div class="card-body">
+                        <h5 class="card-title mb-1">Quốc Thắng</h5>
+                        <p class="text-muted mb-2">Lập Trình Website</p>
+                        <p class="card-text">Phụ trách lập trình chức năng website, xử lý responsive & hiệu ứng.</p>
+                        <div class="d-flex justify-content-center gap-2">
+                            <a href="#" class="btn btn-outline-success btn-sm rounded-circle"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="btn btn-outline-success btn-sm rounded-circle"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="btn btn-outline-success btn-sm rounded-circle"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thành viên 4 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3"> <!-- Smaller columns -->
+                <div class="card shadow border-0 h-100 text-center wow fadeInUp" data-wow-delay="0.4s">
+                    <img src="img/team-4.jpg" class="card-img-top rounded-3" alt="Minh Trí" style="height: 180px; object-fit: cover;"> <!-- Reduced image size -->
+                    <div class="card-body">
+                        <h5 class="card-title mb-1">Minh Trí</h5>
+                        <p class="text-muted mb-2">Thuyết Trình & Kết Nối</p>
+                        <p class="card-text">Đảm nhiệm trình bày, truyền đạt nội dung và đại diện nhóm trước hội đồng.</p>
+                        <div class="d-flex justify-content-center gap-2">
+                            <a href="#" class="btn btn-outline-success btn-sm rounded-circle"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="btn btn-outline-success btn-sm rounded-circle"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="btn btn-outline-success btn-sm rounded-circle"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Team End -->
+
+
+
+
+
+
+
+        <!-- Footer Start -->
+    <div class="container-fluid footer pt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row py-5">
+                <div class="col-lg-7">
+                    <h1 class="text-light mb-0">Đăng ký nhận bản tin của chúng tôi</h1>
+                    <p class="text-secondary">Nhận thông tin mới nhất về bảo vệ môi trường và các mẹo hay</p>
+                </div>
+                <div class="col-lg-5">
+                    <div class="position-relative mx-auto">
+                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Nhập email của bạn">
+                        <button type="button" class="btn  py-2 position-absolute top-0 end-0 mt-2 me-2;" style="background-color: #157347; color: white;">Đăng Ký</button>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="border-top" style="border-color: #157347;"></div>
+                </div>
+            </div>
+            <div class="row g-4 footer-inner">
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item mt-5">
+                        <h4 class="text-light mb-4"><span style="color: #157347;">Greentify  Project</span></h4>
+                        <p class="mb-4 text-secondary">Chúng tôi cam kết bảo vệ môi trường và thúc đẩy sự phát triển bền vững cho cộng đồng và hành tinh.</p>
+                        <a href="" class="btn" style="background-color: #157347; color: white;">Hỗ trợ chúng tôi</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item mt-5">
+                        <h4 class="text-light mb-4">Môi Trường Xanh</h4>
+                        <div class="d-flex flex-column">
+                            <h6 class="text-secondary mb-0">Địa chỉ của chúng tôi</h6>
+                            <div class="d-flex align-items-center border-bottom py-4">
+                                <span class="flex-shrink-0 btn-square" style="background-color: #157347; color: white; "><i class="fa fa-map-marker-alt text-dark me-3 p-4;"></i></span>
+                                <a href="" class="text-body">Trần Đại Nghĩa, Ngũ Hành Sơn, Đà Nẵng</a>
+                            </div>
+                            <h6 class="text-secondary mt-4 mb-0">Liên hệ với chúng tôi</h6>
+                            <div class="d-flex align-items-center py-4">
+                                <span class="flex-shrink-0 btn-square" style="background-color: #157347; color: white; "><i class="fa fa-phone-alt text-dark me-3 p-4;"></i></span>
+                                <a href="" class="text-body">+3888730432</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item mt-5">
+                        <h4 class="text-light mb-4">Các Liên Kết Khám Phá</h4>
+                        <div class="d-flex flex-column align-items-start">
+                            <a class="text-body mb-2" href=""><i class="fa fa-check me-2" style="color: #157347; "></i>Trang chủ</a>
+                            <a class="text-body mb-2" href=""><i class="fa fa-check me-2" style="color: #157347; "></i>Giới thiệu</a>
+                            <a class="text-body mb-2" href=""><i class="fa fa-check me-2" style="color: #157347; "></i>Các dự án của chúng tôi</a>
+                            <a class="text-body mb-2" href=""><i class="fa fa-check me-2" style="color: #157347; "></i>Liên hệ</a>
+                            <a class="text-body mb-2" href=""><i class="fa fa-check me-2" style="color: #157347; "></i>Blog về môi trường</a>
+                            <a class="text-body mb-2" href=""><i class="fa fa-check me-2" style="color: #157347; "></i>Hoạt động cộng đồng</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item mt-5">
+                        <h4 class="text-light mb-4">Bài Viết Mới Nhất</h4>
+                        <div class="d-flex border-bottom py-4" style="border-color: #157347; ">
+                            <img src="img/blog-mini-1.jpg" class="img-fluid flex-shrink-0" alt="">
+                            <div class="ps-3">
+                                <p class="mb-0 text-muted">01 Jan 2045</p>
+                                <a href="" class="text-body">Những giải pháp bảo vệ môi trường đơn giản mà hiệu quả</a>
+                            </div>
+                        </div>
+                        <div class="d-flex py-4">
+                            <img src="img/blog-mini-2.jpg" class="img-fluid flex-shrink-0" alt="">
+                            <div class="ps-3">
+                                <p class="mb-0 text-muted">01 Jan 2045</p>
+                                <a href="" class="text-body">Tại sao chúng ta cần giảm thiểu chất thải nhựa ngay bây giờ?</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container py-4">
+            <div class="border-top pb-4" style="border-color: #157347; "></div>
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a class="border-bottom" href="#">Grentify </a>, Tất cả quyền được bảo lưu.
+                </div>
+            
+            </div>
+        </div>
+    </div>
+
+
+
+        <!-- Footer End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn  border-3 border-light back-to-top"><i class="fa fa-arrow-up"></i></a>   
+
+        
+        <!-- JavaScript Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/wow/wow.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+        <script type="module"  src="js/chart.js"></script>
+    </body>
+
+</html>

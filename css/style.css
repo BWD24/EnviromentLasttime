@@ -487,3 +487,11 @@ align-items: center;
       color: #2e7d32; /* xanh đậm đẹp */
       margin-bottom: 20px;
     }
+
+
+    fa-phone-alt:before, .fa-phone-flip:before {
+    position: absolute;
+    content: "\f879";
+    top: -6px;
+    left: 2px;
+}

@@ -325,6 +325,8 @@ align-items: center;
 }
 
 .avt-img-mt {
+
+    top:0; 
     height: 180px;
     background-image: url('../img/minhtri.jpg');
     background-size: cover;

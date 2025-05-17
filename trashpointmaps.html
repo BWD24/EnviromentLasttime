@@ -321,7 +321,7 @@ function loadAllTrashFlags() {
 
 
 const flagAddBtn = document.querySelector('#addFlagBtn'); 
-console.log(flagAddBtn);
+
 
 
     // Gắn sự kiện cho nút
@@ -429,7 +429,7 @@ function displayCollectionPoint(lat, lng) {
 // Bắt sự kiện click nút thêm điểm thu gom
 map.on("click", function (e) {
   selectedLatLng = [e.latlng.lat, e.latlng.lng];
-  alert("📍 Đã chọn vị trí tại: " + selectedLatLng.join(", "));
+ 
 });
 
 
